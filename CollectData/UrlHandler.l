@@ -170,10 +170,8 @@ void processUrl(char* url)
 
  void displayHtmlAbsoluteURL (char* html, char* url)
  {
-   assert(html);
-   
    // make sure the string buffer is large enough.
-   realloc(html,strlen(html)+2);
+   //realloc(html,strlen(html)+2);
    
    if (html) 
    {

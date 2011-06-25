@@ -117,7 +117,6 @@ void flex_address_match(int* positions, cvector *addressVector)
        
        //cout<<addresstext<<"<br>"<<endl;
        
-       /*    
        adr.address =(char*)malloc(strlen(addresstext)+1);
        strcpy(adr.address, addresstext);
        adr.start = *(positions+addresspos-addressleng);
@@ -125,7 +124,6 @@ void flex_address_match(int* positions, cvector *addressVector)
        adr.country = 1; //address country: CANADA
        //append address to addressVector
        VectorAppend(addressVector, &adr);
-       */
     break;
     
     case ADDRESSUK:
@@ -133,14 +131,14 @@ void flex_address_match(int* positions, cvector *addressVector)
        // An UK address is extracted
        
        // cout<<addresstext<<endl;
-       /* adr.address =(char*)malloc(strlen(addresstext)+1);
+       adr.address =(char*)malloc(strlen(addresstext)+1);
        strcpy(adr.address, addresstext);
        adr.start = *(positions+addresspos-addressleng);
        adr.end = *(positions+addresspos-1);
        adr.country = 2; //address country: UK
        //append address to addressVector
        VectorAppend(addressVector, &adr);
-       */
+       
        
     break;
     

@@ -13,7 +13,7 @@
 
 
 
-/* getTokens
+/**
  * usage: getTokens ("/home2/zyu/text2ngram/address.html",tokenVector);
  * -------------------------------
  * read in file stream, and 
@@ -23,12 +23,11 @@
 
  void getTokens (char* fileName, cvector *tokens);
 
-/* getTokensFromText
- * -------------------------------
-  * parse the html string, get all tokens into tokenVector
+/**
+ * parse the html string, get all tokens into tokenVector
  * update: Feb 2, 2005 by Jerry Yu
  */
 
- void getTokensFromText (char* text, cvector *tokensVector) ;
+ void getTokensFromText (const char* text, cvector *tokensVector) ;
 
 #endif

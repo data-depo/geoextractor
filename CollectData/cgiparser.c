@@ -79,7 +79,7 @@ void GetStringComponent(char *name, char *s, char *t)
 	URLdecode(t);
 }
 
-void GetStringComponent2(char *name, char *s, char *t)
+void GetStringComponent2( const char *name, char *s, char *t)
 {
 	char name2[500];
 	char *p;

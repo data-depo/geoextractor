@@ -56,4 +56,4 @@ install:
 	sudo cp listFiles /usr/lib/cgi-bin/listFiles
 clean : 
 	@echo "Removing all object files..."
-	rm -f core *.o $(TARGET)
+	rm -f core *.o $(TARGET) Address.cpp UrlHandler.c text2token.c

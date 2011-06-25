@@ -20,8 +20,8 @@ int main(int argc, char *argv[])
 
    query = getenv("QUERY_STRING");
    
-   //query = "q=www.google.ca/intl/en/corporate/address.html";
-   //query = "q=http://www.revenue.state.co.us/TPS_Dir/wrap.asp?incl=revenuemail";
+   //query = "geo=www.google.ca/intl/en/corporate/address.html";
+   //query = "geo=http://www.revenue.state.co.us/TPS_Dir/wrap.asp?incl=revenuemail";
    if (argc>1)
    {
       query = argv[1];

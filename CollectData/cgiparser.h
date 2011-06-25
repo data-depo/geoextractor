@@ -9,7 +9,7 @@ void GetStringComponent(char *name, char *s, char *t);
 /**
  * get all remaind strings start from "name", from s, and save it to t
  */
-void GetStringComponent2(char *name, char *s, char *t);
+void GetStringComponent2(const char *name, char *s, char *t);
 
 /**
  * Usage : URLencode(string to encode);

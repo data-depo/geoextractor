@@ -152,6 +152,6 @@ int makeSocket(const char *host);
 * ---------------
 * Get status description to statusCode given a status code 
 */
-void getStatus( int statusCode, char * statusCode );
+void getStatus( int statusCode, char * status );
 
 #endif

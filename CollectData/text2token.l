@@ -295,15 +295,15 @@ int count_ng=0, count_term=0;
 int tags[TOTAL_TAGS];
 int line_flag;
 /* name of features */
-char* name_local[20] = {"PHONE","USZIP","CAZIP","EMAIL","INITCAP","ALLCAPS","CONTAINDIGITS","ALLDIGITS","ACRONYM","WORD","PUNCTUATION", "DATETIME"};
-char* name_layout[20] = {"LINE_START","LINE_IN","LINE_END"};
-char* name_label[4] = {"out","begin","in","end"};
-char* name_punctuation[14]= {"COMMA","PERIOD","EXCLAMATION","QUESTION","SEMICOLON","COLON","PLUS","MINUS","APOSTROPHE","LEFT_PARENTHESIS","RIGHT_PARENTHESIS","DOUBLE_QUOTE","SPACE","NOTPUNCTUATION"};
+const char* name_local[20] = {"PHONE","USZIP","CAZIP","EMAIL","INITCAP","ALLCAPS","CONTAINDIGITS","ALLDIGITS","ACRONYM","WORD","PUNCTUATION", "DATETIME"};
+const char* name_layout[20] = {"LINE_START","LINE_IN","LINE_END"};
+const char* name_label[4] = {"out","begin","in","end"};
+const char* name_punctuation[14]= {"COMMA","PERIOD","EXCLAMATION","QUESTION","SEMICOLON","COLON","PLUS","MINUS","APOSTROPHE","LEFT_PARENTHESIS","RIGHT_PARENTHESIS","DOUBLE_QUOTE","SPACE","NOTPUNCTUATION"};
 
 
 
 #define TOTAL_GEO_TAGS 23
-char name_label_tag[TOTAL_GEO_TAGS][20] = {"NOTGEO","GEO","SN","NS","UN","UNIT","ST","STREET","SD","FL","CITY","STATE","COUNTRY","POB","PON","POS","POSN","ZIP","NAME","C","BUILDING","BN","OTHER"};
+const char name_label_tag[TOTAL_GEO_TAGS][20] = {"NOTGEO","GEO","SN","NS","UN","UNIT","ST","STREET","SD","FL","CITY","STATE","COUNTRY","POB","PON","POS","POSN","ZIP","NAME","C","BUILDING","BN","OTHER"};
 
 /**
  * vector to hold features
@@ -675,25 +675,32 @@ void flex_match()
    //  printf("count_term: %d, count_ng: %d\n",count_term,count_ng);
  }
 
- void getTokensFromText (char* text, cvector *tokensVector) 
+ void getTokensFromText ( const char* text, cvector *tokensVector) 
  {
-   assert(text);
-   int len = strlen(text);
-   realloc(text,len+2);
-   
-   if (!text) 
-   {
-      printf("out of memory when convert text to tokens!\n");
-      exit(0);
-   }
-   
-   //append a '\0' to the end of string to make sure it is end with two '\0' for flex to scan
-   *(text+strlen(text)+1) = '\0';
+   char * newText = NULL;
 
-   YY_BUFFER_STATE buf_state = web_scan_string( text );
+   if ( text )
+   {
+      //duplicate the text to new text
+      int len = strlen(text);
+      newText = (char*) malloc( len + 2 );
+  
+      if ( newText )
+      { 
+         memcpy ( newText, text, len + 1 ); 
+         //append a '\0' to the end of string to make sure it is end with two '\0' for flex to scan
+         newText[ len+1 ]= '\0';
+
+         YY_BUFFER_STATE buf_state = web_scan_string( newText );
     
-   // set global token vector point to tokensVector
-   tokens = tokensVector;
-   flex_match();
-   web_delete_buffer(buf_state);
+         // set global token vector point to tokensVector
+         tokens = tokensVector;
+
+         flex_match();
+
+         web_delete_buffer(buf_state);
+
+         free ( newText );
+      }
+   }
 }

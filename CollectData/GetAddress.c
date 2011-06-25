@@ -30,7 +30,7 @@ void free_address(void *elemAddr) {
    and keep all positions in array "positions"
    array: text, tokens, positions must be released by the caller program.
 */
-void convertToken2Text(char*text, char* tokens, int** positions) {
+void convertToken2Text( char*text, char* tokens, int** positions) {
 	cvector tokenVector;
 	int* p;
 	char* t = tokens;
@@ -39,7 +39,7 @@ void convertToken2Text(char*text, char* tokens, int** positions) {
 	assert(text);
 	assert(tokens);
 	assert(positions);
-    VectorNew (&tokenVector, sizeof (Token),free_token, DEF_VECTOR_SIZE);
+        VectorNew (&tokenVector, sizeof (Token),free_token, DEF_VECTOR_SIZE);
 	getTokensFromText(text, &tokenVector);
 	assert (text);
 	for (i=0;i<tokenVector.ItemsCount;i++) {
@@ -79,7 +79,7 @@ void convertToken2Text(char*text, char* tokens, int** positions) {
 	// give source text, and addressVector
 void getHighlight(const char* s, char* d, const cvector *addressVector) {
 	Address *adr;
-	char *tag;
+	const char *tag;
 	int cur_s = 0; //cursor of source text
 	int cur_d = 0; //cursor of dest text
 	int index;
@@ -148,7 +148,7 @@ void getHighlight(const char* s, char* d, const cvector *addressVector) {
 	// give source text, and addressVector
 void tagAddress(const char* s, char* d, const cvector *addressVector) {
 	Address *adr;
-	char *tag_start;
+	const char *tag_start;
 
 	int cur_s = 0; //cursor of source text
 	int cur_d = 0; //cursor of dest text
@@ -480,7 +480,7 @@ int getAddress (char* url) {
 	printf("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\n");
 	printf("<table border=1 width=100%%><tr><td><table border=1 bgcolor=#ffffff cellpadding=10 cellspacing=0 width=100%% color=#ffffff><tr><td>\n");
 	printf("<font face=arial,sans-serif color=black size=-1>\n");
-	printf("<b><a href='%s'>US Addresses</a> extracted by <a href='%s'>Geo Extractor</a> from web page</b> <a href='%s'>%s</a></font><br><br>\n",LIST_FILES_URL, HOME_PAGE,url,url);
+	printf("<b><a href='%s'>US, UK & Canadian Addresses</a> extracted by <a href='%s'>Geo Extractor</a> from web page</b> <a href='%s'>%s</a></font><br><br>\n",LIST_FILES_URL, HOME_PAGE,url,url);
 
 	//printf("%s,",textHighlight);
 	//display extracted address
@@ -567,7 +567,7 @@ int getAddress (char* url) {
 		printf("<P><input name=\"extraction\" type=\"radio\" value=\"right\" ");
 		if ((rightOrWrong == 0)||(rightOrWrong == -1)) //if no user input or user input: extracted address all correct
 			printf("checked");
-		printf("> All US address extracted correctly<br>\n");
+		printf("> All address extracted correctly<br>\n");
 		printf("<input name=\"extraction\" type=\"radio\" value=\"wrong\" ");
 		if (rightOrWrong == 1) //user input: extracted address all correct
 			printf("checked");
@@ -594,7 +594,7 @@ int getAddress (char* url) {
   //printf("%s",textHighlight);
   displayHtmlAbsoluteURL(textHighlight, url);
 
-	VectorDispose(&addressVector);
+  VectorDispose(&addressVector);
   free (positions);
   free (text);
   free (tokens);

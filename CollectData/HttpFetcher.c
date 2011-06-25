@@ -666,7 +666,7 @@ int makeSocket(const char *host)
 * Get status description to statusCode given a status code 
 */
 void getStatus( int statusCode, char *status ) {
-   char* s;
+   const char* s;
    switch (statusCode) {
          case 201:
             s="Created";
