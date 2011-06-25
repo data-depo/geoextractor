@@ -32,11 +32,11 @@
 /**
  * Dictionary files
  */
-#define US_STATES_DATA "/home/jerry2yu/research/geo/data/dictionary/USStates"
-#define SUD_DATA       "/home/jerry2yu/research/geo/data/dictionary/SecondaryUnitDesignator"
-#define STREET_SUFFIXES_DATA "/home/jerry2yu/research/geo/data/dictionary/StreetSuffixes"
-#define OTHER_DATA          "/home/jerry2yu/research/geo/data/dictionary/others"
-#define STREET_DIRECTIONS_DATA "/home/jerry2yu/research/geo/data/dictionary/StreetDirections"
+#define US_STATES_DATA "/home/jerry/projects/geo/geoextractor/DataSet/dictionary/USStates"
+#define SUD_DATA       "/home/jerry/projects/geo/geoextractor/DataSet/dictionary/SecondaryUnitDesignator"
+#define STREET_SUFFIXES_DATA "/home/jerry/projects/geo/geoextractor/DataSet/dictionary/StreetSuffixes"
+#define OTHER_DATA          "/home/jerry/projects/geo/geoextractor//DataSet/dictionary/others"
+#define STREET_DIRECTIONS_DATA "/home/jerry/projects/geo/geoextractor/DataSet/dictionary/StreetDirections"
 
 
 #endif
