@@ -9,10 +9,10 @@
 /**
  * defines the cgi path, cgi application name and extractor html name
  */
-#define GEO_URL "http://localhost/cgi-bin/geo?geo="
+#define GEO_URL "/cgi-bin/geo?geo="
 #define GEO_CGI "geo"
-#define HOME_PAGE "http://localhost/geo.html"
-#define LIST_FILES_URL "http://localhost/cgi-bin/listFiles"
+#define HOME_PAGE "/geo/"
+#define LIST_FILES_URL "/cgi-bin/listFiles"
 
 /**
  * paths to save downloaded and tagged web pages 

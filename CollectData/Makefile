@@ -51,7 +51,7 @@ rebuild :
 	make clean
 	make
 install:
-	sudo cp geo.html /var/www
+	sudo cp geo.html /var/www/geo/index.html
 	sudo cp geo /usr/lib/cgi-bin/geo
 	sudo cp listFiles /usr/lib/cgi-bin/listFiles
 clean : 

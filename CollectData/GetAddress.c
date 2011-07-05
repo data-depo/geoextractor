@@ -477,7 +477,7 @@ int getAddress (char* url) {
 	//printf("domain_url: %s\n", domain_url);
 	//output header
 
-	printf("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=ISO-8859-1\">\n");
+	printf("<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\"></head><body>\n");
 	printf("<table border=1 width=100%%><tr><td><table border=1 bgcolor=#ffffff cellpadding=10 cellspacing=0 width=100%% color=#ffffff><tr><td>\n");
 	printf("<font face=arial,sans-serif color=black size=-1>\n");
 	printf("<b><a href='%s'>US, UK & Canadian Addresses</a> extracted by <a href='%s'>Geo Extractor</a> from web page</b> <a href='%s'>%s</a></font><br><br>\n",LIST_FILES_URL, HOME_PAGE,url,url);
@@ -576,8 +576,8 @@ int getAddress (char* url) {
 		printf("<INPUT TYPE=\"SUBMIT\" VALUE=\"Save Webpage\"></font></FORM>\n");
 		//show google search
 		printf("<SCRIPT language=\"JavaScript\">function OnSubmitForm(){ document.g.action =\"%shttp://www.google.com/search?num=100&q=\"+document.g.q.value.replace(\" \",\"%%2B\");}</SCRIPT>\n", GEO_URL);
-		printf("<table border=0 align=right><tr><td>\n");
-		printf("<form action=\"\" method=\"post\" name=\"g\" onSubmit=\"return OnSubmitForm();\">\n");
+		printf("<table border=0 align=left><tr><td>\n");
+		printf("Start your new search here: <form action=\"\" method=\"post\" name=\"g\" onSubmit=\"return OnSubmitForm();\">\n");
 		printf("<input size=\"32\" name=\"q\">\n");
 		printf("<INPUT TYPE=\"SUBMIT\" name=\"Submit\" VALUE=\"Google\"></form>\n");
 		printf("</td></tr></table>\n");
@@ -593,6 +593,8 @@ int getAddress (char* url) {
   printf("<hr>\n");
   //printf("%s",textHighlight);
   displayHtmlAbsoluteURL(textHighlight, url);
+
+  printf ("</body>");
 
   VectorDispose(&addressVector);
   free (positions);
